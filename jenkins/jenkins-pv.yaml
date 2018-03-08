@@ -1,0 +1,19 @@
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: ebs-gp2-1
+  labels:
+    failure-domain.beta.kubernetes.io/region: eu-central-1
+    failure-domain.beta.kubernetes.io/zone: eu-central-1a
+  annotations:
+    pv.kubernetes.io/bound-by-controller: 'yes'
+spec:
+  capacity:
+    storage: 6Gi
+  awsElasticBlockStore:
+    volumeID: aws://eu-central-1a/vol-09796a3d04848b30c
+    fsType: ext4
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain

@@ -1,0 +1,15 @@
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+ name: jenkins-pvc
+ namespace: jenkins
+ labels:
+    app: jenkins
+spec:
+ accessModes:
+    - ReadWriteOnce
+ resources:
+   requests:
+      storage: 4Gi
+ volumeName: ebs-gp2-1

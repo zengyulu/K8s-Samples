@@ -1,0 +1,14 @@
+---
+apiVersion: extensions/v1beta1 # use v1beta1 before v1.9
+kind: Ingress
+metadata:
+  name: jenkins-web-ui
+  namespace: jenkins
+spec:
+  rules:
+  - host: myjenkins.com
+    http:
+      paths:
+      - backend:
+          serviceName: jenkins-web-ui
+          servicePort: 80
